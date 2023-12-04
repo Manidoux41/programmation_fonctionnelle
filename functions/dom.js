@@ -50,6 +50,11 @@ export function createContainer() {
     document.querySelector('#app').append(container);   
 }
 
+/**
+ * Creates a form element and appends it to the DOM.
+ *
+ * @return {HTMLElement} The created form element.
+ */
 export function createForm() {
     const form = createElement('form', {
         id: 'form',
@@ -66,4 +71,5 @@ export function createForm() {
     });
     document.querySelector('#app').appendChild(form);
     form.appendChild(input);
+    return form;
 }
