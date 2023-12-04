@@ -4,6 +4,9 @@
  * @param {Object} data - The data to be displayed.
  */
 export function displaydata(data) {
+    const dataList = createElement('div', {
+        class: 'data-list'
+    });
     const title = createElement('h1', {
         class: 'titre',
         id: 'titre',
@@ -15,8 +18,9 @@ export function displaydata(data) {
     });
     description.textContent = data.description;
 
-    document.querySelector('#app').appendChild(title);
-    document.querySelector('#app').appendChild(description);
+    document.querySelector('#container').appendChild(dataList);
+    dataList.appendChild(title);
+    dataList.appendChild(description);
 }
 
 /**
@@ -32,6 +36,18 @@ export function createElement(tagName, attributes = {}) {
         element.setAttribute(attribute, value);
     }
     return element;
+}
+
+/**
+ * Creates a container element and appends it to the '#app' element.
+ *
+ * @return {void} This function does not return a value.
+ */
+export function createContainer() {
+    const container = createElement('div', {
+        id: 'container',
+    });
+    document.querySelector('#app').append(container);   
 }
 
 export function createForm() {
